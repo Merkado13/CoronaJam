@@ -400,8 +400,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1882895012}
   - component: {fileID: 1882895011}
-  - component: {fileID: 1882895013}
   - component: {fileID: 1882895014}
+  - component: {fileID: 1882895013}
+  - component: {fileID: 1882895015}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -511,3 +512,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1882895015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882895010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f0b2b81f6a23744b40a3fe2aca0b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorPos: {x: 0, y: 0, z: 0}
+  curentCamera: {fileID: 1515772431}
