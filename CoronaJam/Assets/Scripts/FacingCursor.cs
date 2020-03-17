@@ -8,7 +8,7 @@ public class FacingCursor : MonoBehaviour
     private SpriteRenderer renderer;
     [SerializeField] private Vector3 cursorPos;
     [SerializeField] private Camera curentCamera;
-
+    [SerializeField] private Transform playerTransform;
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -28,7 +28,10 @@ public class FacingCursor : MonoBehaviour
 
     private void faceToCursor(){
         cursorPos = curentCamera.ScreenToWorldPoint(Input.mousePosition);
-        float xOffset = cursorPos.x - transform.position.x;
-        renderer.flipX = xOffset >= 0;
+        float xOffset = cursorPos.x - playerTransform.position.x;
+        if (xOffset != 0)
+        {
+            renderer.flipX = xOffset > 0;
+        }
     }
 }
