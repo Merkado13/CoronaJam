@@ -34,10 +34,6 @@ public class LookingAtCursor : MonoBehaviour
         
         if (cursorPosInObjectSpace.x != 0)
         {
-            /*if(cursorPosInObjectSpace.x < 0)
-            {
-                cursorPosInObjectSpace = transform.position - cursorPos;
-            }*/
             angleToRotInDegree = Mathf.Atan2(cursorPosInObjectSpace.y, cursorPosInObjectSpace.x) * Mathf.Rad2Deg - 180;
             transform.localScale = new Vector3(transform.localScale.x , initScaleY * -Mathf.Sign(cursorPosInObjectSpace.x), transform.localScale.z);
         }
