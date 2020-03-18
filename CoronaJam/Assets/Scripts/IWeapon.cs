@@ -6,4 +6,6 @@ public interface IWeapon
 {
     void Shoot();
     bool CanShoot();
+    void Hide();
+    void Show();
 }

@@ -8,7 +8,16 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     [SerializeField] private GameObject bulletObject;
     [SerializeField] private Camera currentCamera;
     [SerializeField] private float offsetBullet;
+    private SpriteRenderer renderer;
+    private LookingAtCursor lookat;
+    private Hideable hideable;
 
+    private void Awake()
+    {
+        renderer = GetComponent<SpriteRenderer>();
+        lookat = GetComponent<LookingAtCursor>();
+        hideable = GetComponent<Hideable>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +48,15 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     public bool CanShoot()
     {
         return Input.GetMouseButtonDown(0);
+    }
+
+    public void Hide()
+    {
+        hideable.Hide();
+    }
+
+    public void Show()
+    {
+        hideable.Show();
     }
 }

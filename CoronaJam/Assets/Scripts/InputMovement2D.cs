@@ -34,10 +34,10 @@ public class InputMovement2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        
     }
 
-    private void Movement()
+    public void Movement()
     {
         Vector2 inputMovement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector2 moveDirection = inputMovement.normalized;
