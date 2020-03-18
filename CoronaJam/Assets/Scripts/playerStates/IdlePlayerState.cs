@@ -24,16 +24,27 @@ public class IdlePlayerState : MonoBehaviour
     public void StartIdle()
     {
         playerController.weapon.Show();
-        Debug.Log("HEy");
     }
 
     [StateUpdateMethod("Player.Idle")]
     public void UpdateIdle()
     {
+        //Behaviour
         playerController.Shoot();
+        playerController.PerformInZone();
         inputMovement.Movement();
         faceCursor.FaceToCursor();
-        Debug.Log("HEy");
+
+        //transitions
+        if (playerController.isWashingHands)
+        {
+            animator.SetBool("isWashingHands", true);
+        }
+
+        if (playerController.isLockingWindow)
+        {
+
+        }
     }
 
     [StateExitMethod("Player.Idle")]
@@ -41,4 +52,6 @@ public class IdlePlayerState : MonoBehaviour
     {
         playerController.weapon.Hide();
     }
+
+    
 }

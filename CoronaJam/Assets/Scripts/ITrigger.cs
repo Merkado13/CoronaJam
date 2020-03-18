@@ -4,6 +4,8 @@ using UnityEngine;
 
 public interface ITrigger
 {
-    void perform(PlayerController player);
-    void deperform(PlayerController player);
+    void Enter(PlayerController player);
+    void Exit(PlayerController player);
+    bool CanPerform(PlayerController player);
+    void Perform(PlayerController player);
 }

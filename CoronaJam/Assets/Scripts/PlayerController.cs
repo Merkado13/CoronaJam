@@ -10,6 +10,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool canLockWindow;
     [SerializeField] private bool canWashHands;
 
+    public bool isWashingHands { get; set; }
+    public bool isLockingWindow { get; set; }
+
+    private ITrigger currentZone;
+    readonly public static float MAX_CLEAN = 100.0f;
+    [SerializeField] private float cleaness;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,16 +42,29 @@ public class PlayerController : MonoBehaviour
         ITrigger trigger = collision.GetComponent<ITrigger>();
         if (trigger != null)
         {
-            trigger.perform(this);
+            trigger.Enter(this);
+            currentZone = trigger;
+        }
+    }
+
+    public void PerformInZone()
+    {
+        if (currentZone != null)
+        {
+            if (Input.GetKey(KeyCode.E) && currentZone.CanPerform(this))
+            {
+                currentZone.Perform(this);
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         ITrigger trigger = collision.GetComponent<ITrigger>();
-        if(trigger != null)
+        if (trigger != null)
         {
-            trigger.deperform(this);
+            trigger.Exit(this);
+            currentZone = null;
         }
     }
 
@@ -67,6 +87,16 @@ public class PlayerController : MonoBehaviour
     public void setCanWashHands(bool canWashHands)
     {
         this.canWashHands = canWashHands;
+    }
+
+    public float getCleaness()
+    {
+        return cleaness;
+    }
+
+    public void setCleaness(float cleaness)
+    {
+        this.cleaness = cleaness;
     }
     #endregion
 }

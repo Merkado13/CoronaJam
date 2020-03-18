@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5311893109751578884}
   - component: {fileID: 5311893109751578885}
   - component: {fileID: 6952728517200309961}
+  - component: {fileID: 2781983971123535824}
   m_Layer: 0
   m_Name: WeaponTest
   m_TagString: Untagged
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCamera: {fileID: 0}
+  canMoveWeapon: 1
 --- !u!114 &6952728517200309961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +112,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletObject: {fileID: 2217926835377592686, guid: 36f98caa2746d5645a8f1eef9a301d82,
     type: 3}
+  currentCamera: {fileID: 0}
+  offsetBullet: 0
+--- !u!114 &2781983971123535824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311893109751578889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c281bd4a38f178f4983d56d678d9b0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
