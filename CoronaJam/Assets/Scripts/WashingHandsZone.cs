@@ -25,8 +25,16 @@ public class WashingHandsZone : MonoBehaviour, ITrigger
 
     public void Perform(PlayerController player)
     {
-        //player.setCleaness(player.getCleaness() +cleanFactor);
-        player.isWashingHands = true;
-        Debug.Log("Me estoy lavando las manos");
+        if (player.getCleaness() < PlayerController.MAX_CLEAN)
+        {
+            player.setCleaness(player.getCleaness() + cleanFactor);
+            player.isWashingHands = true;
+        }
+        else
+        {
+            player.setCleaness(PlayerController.MAX_CLEAN);
+            player.isWashingHands = false;
+        }
+        
     }
 }

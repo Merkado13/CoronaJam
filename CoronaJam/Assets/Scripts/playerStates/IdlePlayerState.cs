@@ -1,8 +1,8 @@
-﻿using AnimatorStateMachineUtil;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AnimatorStateMachineUtil;
 
 public class IdlePlayerState : MonoBehaviour
 {
@@ -38,12 +38,14 @@ public class IdlePlayerState : MonoBehaviour
         //transitions
         if (playerController.isWashingHands)
         {
+            inputMovement.Stop();
             animator.SetBool("isWashingHands", true);
         }
 
         if (playerController.isLockingWindow)
         {
-
+            inputMovement.Stop();
+            animator.SetBool("isLockingWindow", true);
         }
     }
 
@@ -52,6 +54,5 @@ public class IdlePlayerState : MonoBehaviour
     {
         playerController.weapon.Hide();
     }
-
     
 }
