@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using AnimatorStateMachineUtil;
 
 public class DeadPlayerState : MonoBehaviour
@@ -12,33 +13,23 @@ public class DeadPlayerState : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     [StateEnterMethod("Player.Dead")]
     public void StartDead()
     {
-
+        //la animación se iniará en el animator
+        SceneManager.LoadScene(SceneOrder.GAME_OVER);
     }
 
     [StateUpdateMethod("Player.Dead")]
     public void UpdateDead()
     {
-        Debug.Log("Me estoy lavando las manos");
+        //cuando termine la animación pasar a la escena
     }
 
     [StateExitMethod("Player.Dead")]
     public void ExitDead()
     {
-
+        //probar que al acabar la animación con una transición con exit a un estado vacio la escena
+        //game over se carge sin retardo
     }
 }

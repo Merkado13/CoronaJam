@@ -20,12 +20,6 @@ public class WashingHandsState : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
     [StateEnterMethod("Player.WashingHands")]
     public void StartWashingHands()
     {
@@ -38,7 +32,12 @@ public class WashingHandsState : MonoBehaviour
         Debug.Log("me estoy lavando las manos");
 
         //transitions
-        if(Input.GetKeyUp(KeyCode.E))
+
+        if (player.isDead())
+        {
+            animator.SetBool("isDead", true);
+        }
+        else if (Input.GetKeyUp(KeyCode.E))
         {
             player.isWashingHands = false;
         }

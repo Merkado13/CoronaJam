@@ -5,7 +5,7 @@ using UnityEngine;
 public class LockWindowZone : MonoBehaviour, ITrigger
 {
     public static readonly int MAX_WOODS = 3;
-    private int currentNumWoods = 3;
+    private int currentNumWoods = 2;
 
     public void Exit(PlayerController player)
     {
@@ -26,7 +26,7 @@ public class LockWindowZone : MonoBehaviour, ITrigger
 
     public void Perform(PlayerController player)
     {
-        currentNumWoods++;
+        //currentNumWoods++;
         player.isLockingWindow = true;
     }
 }

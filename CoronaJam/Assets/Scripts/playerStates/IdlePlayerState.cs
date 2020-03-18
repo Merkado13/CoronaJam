@@ -47,6 +47,16 @@ public class IdlePlayerState : MonoBehaviour
             inputMovement.Stop();
             animator.SetBool("isLockingWindow", true);
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            playerController.setCleaness(0);
+        }
+
+        if (playerController.isDead())
+        {
+            animator.SetBool("isDead", true);
+        }
     }
 
     [StateExitMethod("Player.Idle")]

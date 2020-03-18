@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363facf4d922bf2419637f6f04d5d007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cleanFactor: 0.5
 --- !u!61 &477751521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -703,6 +704,7 @@ MonoBehaviour:
   weaponObject: {fileID: 182558007}
   canLockWindow: 0
   canWashHands: 0
+  cleaness: 100
 --- !u!95 &1882895017
 Animator:
   serializedVersion: 3

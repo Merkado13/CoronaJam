@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private ITrigger currentZone;
     readonly public static float MAX_CLEAN = 100.0f;
-    [SerializeField] private float cleaness;
+    [SerializeField] private float cleaness = MAX_CLEAN;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool isDead()
+    {
+        return cleaness <= 0;
     }
 
     public void Shoot()
