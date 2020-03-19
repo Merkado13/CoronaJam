@@ -77,7 +77,7 @@ public class Enemy_FSM : MonoBehaviour
 
         if(collision.GetComponent<ToiletPaper>() != null) {
             collision.transform.parent = transform;
-            collision.transform.position = Vector3.zero;
+            collision.transform.localPosition = Vector3.zero;
             enemyFSM.SetTrigger("GetToWindowExit");
         }
     }
@@ -94,7 +94,7 @@ public class Enemy_FSM : MonoBehaviour
     public void EnterSearchWindowExit()
     {
         SearchWindow(WindowsInside);
-        transform.GetChild(0).transform.position = Vector3.zero;
+        //transform.GetChild(0).transform.localPosition = Vector3.zero;
     }
 
     [StateEnterMethod("Base.Run away")]
