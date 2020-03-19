@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Weapons { MANUAL, SEMI_AUTOMATIC, AUTOMATIC, MINIGUN, GRANADER}
+enum Weapons { MANUAL, RAFAGE, AUTOMATIC, MINIGUN, GRANADER, SHOTGUN}
 
 public interface IWeapon
 {

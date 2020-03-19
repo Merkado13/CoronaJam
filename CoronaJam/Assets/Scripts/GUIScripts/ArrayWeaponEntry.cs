@@ -1,6 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+[System.Serializable]
+public class WeaponInfo
+{
+    public string name;
+    public string description;
+    public int price;
+    public Sprite sprite;
+}
 
 public class ArrayWeaponEntry : MonoBehaviour
 {
@@ -9,8 +19,11 @@ public class ArrayWeaponEntry : MonoBehaviour
     private WeaponEntry weaponEntry;
     private readonly int MAX_NUM_WEAPONS = System.Enum.GetNames(typeof(Weapons)).Length;
 
+    [SerializeField] private Image showcaseImage;
+    [SerializeField] private Text textDesription;
     [SerializeField] private float heightEntry = 43;
     [SerializeField] private float offsetBtwEntry = 40;
+    [SerializeField] private WeaponInfo[] weaponsInfo;
 
     private int numOfEntriesPerStep = 3;
     private int currentStep = 0;
@@ -19,6 +32,8 @@ public class ArrayWeaponEntry : MonoBehaviour
     private float steppingOffset;
 
     public enum Direction { UP = -1, DOWN = 1 }
+
+    
 
     private void Awake()
     {
@@ -66,8 +81,9 @@ public class ArrayWeaponEntry : MonoBehaviour
             GameObject entryObject = Instantiate(weaponEntryObject, 
                 transform.position + new Vector3(0,-1,0) * (i * heightEntry + i * offsetBtwEntry), 
                 transform.rotation,transform);
+
             WeaponEntry entry = entryObject.GetComponent<WeaponEntry>();
-            
+            entry.Init(weaponsInfo[i], showcaseImage, textDesription);
         }
     }
 
