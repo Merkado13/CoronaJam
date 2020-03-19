@@ -179,8 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0a3a262223d7d4dacee8ad1db80a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1000
   timeToDisappear: 2
+  knockbackMultiplier: 4
+  knockbackLength: 2
 --- !u!114 &7930878969042871908
 MonoBehaviour:
   m_ObjectHideFlags: 0

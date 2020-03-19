@@ -94,7 +94,6 @@ public class Enemy_FSM : MonoBehaviour
     public void EnterSearchWindowExit()
     {
         SearchWindow(WindowsInside);
-        //transform.GetChild(0).transform.localPosition = Vector3.zero;
     }
 
     [StateEnterMethod("Base.Run away")]
