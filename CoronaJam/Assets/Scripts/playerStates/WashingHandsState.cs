@@ -14,17 +14,6 @@ public class WashingHandsState : MonoBehaviour
         player = GetComponent<PlayerController>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    [StateEnterMethod("Player.WashingHands")]
-    public void StartWashingHands()
-    {
-    }
-
     [StateUpdateMethod("Player.WashingHands")]
     public void UpdateWashingHands()
     {

@@ -48,6 +48,12 @@ public class IdlePlayerState : MonoBehaviour
             animator.SetBool("isLockingWindow", true);
         }
 
+        if (playerController.isCrafting)
+        {
+            inputMovement.Stop();
+            animator.SetBool("isCrafting", true);
+        }
+
         if (Input.GetKeyDown(KeyCode.Return))
         {
             playerController.setCleaness(0);

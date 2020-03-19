@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     public IWeapon weapon { get; set; }
 
     [SerializeField] private bool canLockWindow;
+    [SerializeField] private bool canCraft;
     [SerializeField] private bool canWashHands;
 
     public bool isWashingHands { get; set; }
+    public bool isCrafting { get; set; }
     public bool isLockingWindow { get; set; }
 
     private ITrigger currentZone;
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     #region getters_and_setters
     public bool getCanLockWindow()
     {
@@ -82,6 +85,16 @@ public class PlayerController : MonoBehaviour
     public void setCanLockWindow(bool canLockWindow)
     {
         this.canLockWindow = canLockWindow;
+    }
+
+    public bool getCanCraft()
+    {
+        return canCraft;
+    }
+
+    public void setCanCraft(bool canCraft)
+    {
+        this.canCraft = canCraft;
     }
 
     public bool getCanWashHands()
