@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class SceneOrder 
 {
-    public static int GAMEPLAY = 0;
-    public static int GAME_OVER = 1;
+    public enum Scenes { GAMEPLAY , GAME_OVER};
+    
 }

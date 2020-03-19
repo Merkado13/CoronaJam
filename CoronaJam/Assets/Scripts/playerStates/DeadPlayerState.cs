@@ -17,7 +17,7 @@ public class DeadPlayerState : MonoBehaviour
     public void StartDead()
     {
         //la animación se iniará en el animator
-        SceneManager.LoadScene(SceneOrder.GAME_OVER);
+        SceneManager.LoadScene((int)SceneOrder.Scenes.GAME_OVER);
     }
 
     [StateUpdateMethod("Player.Dead")]
