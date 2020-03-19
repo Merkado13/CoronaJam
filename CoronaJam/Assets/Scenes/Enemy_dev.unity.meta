@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:CoronaJam/Assets/Scenes/Enemy_dev.unity.meta
 guid: c8ec64f708a835b45a4e939d4b0fff71
+=======
+guid: 4934c28c904b85349a2dde4554e5032a
+>>>>>>> develop:CoronaJam/Assets/Scenes/GameOver.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
