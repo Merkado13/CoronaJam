@@ -8,6 +8,7 @@ public class LookingAtCursor : MonoBehaviour
     private SpriteRenderer renderer;
     private float angleToRotInDegree;
     private float initScaleY;
+    public bool canMoveWeapon = true;
 
     private void Awake()
     {
@@ -24,7 +25,8 @@ public class LookingAtCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LookAtCursor();
+        if(canMoveWeapon)
+            LookAtCursor();
     }
 
     private void LookAtCursor()

@@ -23,10 +23,10 @@ public class FacingCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        faceToCursor();
+        
     }
 
-    private void faceToCursor(){
+    public void FaceToCursor(){
         cursorPos = curentCamera.ScreenToWorldPoint(Input.mousePosition);
         float xOffset = cursorPos.x - playerTransform.position.x;
         if (xOffset != 0)
