@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
     private Vector3 initPos;
     private Vector3 direction;
     private Rigidbody2D rb;
@@ -17,30 +16,25 @@ public class Bullet : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     private void FixedUpdate()
     {
         float distanceTravelled = Vector3.Distance(transform.position, initPos);
-        if (distanceTravelled < maxDistance)
-        {
-            
+        if(distanceTravelled < maxDistance) {
             //transform.Translate(direction);
             rb.MovePosition(rb.position + new Vector2(direction.x, direction.y) * speed * Time.fixedDeltaTime);
         }
-        else
-        {
+        else {
             Destroy(this.gameObject);
         }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     public void Init(Vector2 initPos, Vector2 direction)
@@ -50,9 +44,16 @@ public class Bullet : MonoBehaviour
         Debug.Log("Bullet: " + direction);
     }
 
-    //poner la animación 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.GetComponent<EnemyHealth>() != null) {
+            collision.GetComponent<EnemyHealth>().ReceiveDamage(25, direction);
+            Destroy(gameObject);
+        }
+    }
+
+    //poner la animación
     private void OnDestroy()
     {
-        
     }
 }
