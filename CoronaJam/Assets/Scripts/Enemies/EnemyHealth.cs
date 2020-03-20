@@ -29,6 +29,8 @@ public class EnemyHealth : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         knockbackCount = 0;
         isKnocked = false;
+
+        print("Vida: " + health);
     }
 
     private void Update()
@@ -53,6 +55,11 @@ public class EnemyHealth : MonoBehaviour
         if(health <= 0) {
             enemyFSM.SetBool("isDead", true);
         }
+    }
+
+    public void MultiplyHealth(float multiplier)
+    {
+        health *= multiplier;
     }
 
     [StateEnterMethod("Base.Dead")]
