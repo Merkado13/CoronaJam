@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool isLockingWindow { get; set; }
 
     private ITrigger currentZone;
+    private int currentWeaponIndex = 0;
 
     readonly public static float MAX_CLEAN = 100.0f;
     [SerializeField] private float cleaness = MAX_CLEAN;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentWeapon = weaponObject.GetComponent<IWeapon>();
+        weapons.Add(currentWeapon);
         InitGUI();
     }
 
@@ -58,10 +60,30 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot()
     {
-        if (currentWeapon.CanShoot())
+        if (currentWeapon != null)
         {
-            currentWeapon.Shoot();
+            if (currentWeapon.CanShoot())
+            {
+                currentWeapon.Shoot();
+            }
         }
+    }
+
+    public void ChangeBtwWeapons()
+    {
+        bool goUp = Input.GetKeyDown(KeyCode.Z) || Input.GetAxis("Mouse ScrollWheel") > 0f;
+        bool goDown = Input.GetKeyDown(KeyCode.X) || Input.GetAxis("Mouse ScrollWheel") < 0f;
+        if (goUp)
+        {
+            currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
+            SwapWeapon(weapons[currentWeaponIndex]);
+        }
+        else if (goDown)
+        {
+          
+            currentWeaponIndex = currentWeaponIndex <= 0 ? weapons.Count - 1 : currentWeaponIndex - 1;
+            SwapWeapon(weapons[currentWeaponIndex]);
+        }    
     }
 
     public void PrepareIncomingWeapon(GameObject weaponPurchased)
@@ -69,6 +91,7 @@ public class PlayerController : MonoBehaviour
         IWeapon weapon = weaponPurchased.GetComponent<IWeapon>();
         weapon.Init();
         weapons.Add(weapon);
+        currentWeaponIndex = weapons.Count - 1;
         SwapWeapon(weapon);
     }
 

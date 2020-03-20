@@ -30,6 +30,7 @@ public class IdlePlayerState : MonoBehaviour
     public void UpdateIdle()
     {
         //Behaviour
+        playerController.ChangeBtwWeapons();
         playerController.Shoot();
         playerController.PerformInZone();
         inputMovement.Movement();
