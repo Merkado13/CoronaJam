@@ -19,11 +19,11 @@ public class Hideable : MonoBehaviour
 
     public void Show()
     {
-        materialColor = new Color(materialColor.r, materialColor.g, materialColor.b, 0);
+        gameObject.SetActive(true);
     }
 
     public void Hide()
     {
-        materialColor = new Color(materialColor.r, materialColor.g, materialColor.b, 1);
+        gameObject.SetActive(false);
     }
 }

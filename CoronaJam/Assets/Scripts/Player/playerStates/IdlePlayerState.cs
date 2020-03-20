@@ -23,7 +23,7 @@ public class IdlePlayerState : MonoBehaviour
     [StateEnterMethod("Player.Idle")]
     public void StartIdle()
     {
-        playerController.weapon.Show();
+        playerController.currentWeapon.Show();
     }
 
     [StateUpdateMethod("Player.Idle")]
@@ -68,7 +68,7 @@ public class IdlePlayerState : MonoBehaviour
     [StateExitMethod("Player.Idle")]
     public void ExitIdle()
     {
-        playerController.weapon.Hide();
+        playerController.currentWeapon.Hide();
     }
     
 }

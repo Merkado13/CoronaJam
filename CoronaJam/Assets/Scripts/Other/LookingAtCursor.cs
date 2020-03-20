@@ -42,4 +42,8 @@ public class LookingAtCursor : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angleToRotInDegree);
     }
 
+    public void setCamera(Camera camera)
+    {
+        currentCamera = camera;
+    }
 }

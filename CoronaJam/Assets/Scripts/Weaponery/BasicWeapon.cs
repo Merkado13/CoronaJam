@@ -20,6 +20,7 @@ public class BasicWeapon : MonoBehaviour, IWeapon
         lookat = GetComponent<LookingAtCursor>();
         hideable = GetComponent<Hideable>();
         weaponInfo = GetComponent<WeaponInfoPlay>();
+        currentCamera = Camera.main;
     }
 
     // Start is called before the first frame update
@@ -51,6 +52,12 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     public bool CanShoot()
     {
         return Input.GetMouseButtonDown(0);
+    }
+
+    public void Init()
+    {
+        LookingAtCursor lookAt = GetComponent<LookingAtCursor>();
+        lookAt.setCamera(currentCamera);
     }
 
     public void Hide()

@@ -16,6 +16,7 @@ public class ArrayWeaponEntry : MonoBehaviour
 {
    
     [SerializeField] private GameObject weaponEntryObject;
+    [SerializeField] private GameObject[] weaponsGame;
     private WeaponEntry weaponEntry;
     private static readonly int MAX_NUM_WEAPONS = System.Enum.GetNames(typeof(Weapons)).Length;
 
@@ -112,6 +113,9 @@ public class ArrayWeaponEntry : MonoBehaviour
     public void Purchase(int index)
     {
         isWeaponPurchased[index] = true;
+        GameObject weaponPurchased = Instantiate(weaponsGame[index], player.transform);
+        player.PrepareIncomingWeapon(weaponPurchased);
+       
     }
 
     public void ShowNotPurchasedWeapons()

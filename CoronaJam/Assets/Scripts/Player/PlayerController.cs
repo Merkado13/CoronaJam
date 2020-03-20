@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject weaponObject;
-    public IWeapon weapon { get; set; }
+    public List<IWeapon> weapons = new List<IWeapon>();
+    public IWeapon currentWeapon { get; set; }
 
     [SerializeField] private bool canLockWindow;
     [SerializeField] private bool canCraft;
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon = weaponObject.GetComponent<IWeapon>();
+        currentWeapon = weaponObject.GetComponent<IWeapon>();
         InitGUI();
     }
 
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
         guiController.UpdateCleaness(MAX_CLEAN);
         guiController.UpdateLiquidSoap(false);
         guiController.UpdatePill(false);
-        guiController.UpdateWeapon(weapon);
+        guiController.UpdateWeapon(currentWeapon);
     }
 
     public bool isDead()
@@ -57,10 +58,26 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot()
     {
-        if (weapon.CanShoot())
+        if (currentWeapon.CanShoot())
         {
-            weapon.Shoot();
+            currentWeapon.Shoot();
         }
+    }
+
+    public void PrepareIncomingWeapon(GameObject weaponPurchased)
+    {
+        IWeapon weapon = weaponPurchased.GetComponent<IWeapon>();
+        weapon.Init();
+        weapons.Add(weapon);
+        SwapWeapon(weapon);
+    }
+
+    private void SwapWeapon(IWeapon weaponToSwap)
+    {
+        currentWeapon.Hide();
+        guiController.UpdateWeapon(weaponToSwap);
+        currentWeapon = weaponToSwap;
+        currentWeapon.Show();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
