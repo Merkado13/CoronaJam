@@ -16,19 +16,38 @@ public class PlayerController : MonoBehaviour
     public bool isLockingWindow { get; set; }
 
     private ITrigger currentZone;
+
     readonly public static float MAX_CLEAN = 100.0f;
     [SerializeField] private float cleaness = MAX_CLEAN;
+    [SerializeField] private int gearsCount = 0;
+    [SerializeField] private GUIController guiController;
 
     // Start is called before the first frame update
     void Start()
     {
         weapon = weaponObject.GetComponent<IWeapon>();
+        InitGUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.U)){
+            setCleaness(getCleaness() - 1.2f);
+        }
+        if (Input.GetKey(KeyCode.I))
+        {
+            setGearsCount(getGearsCount() + 1000);
+        }
+    }
+
+    private void InitGUI()
+    {
+        guiController.UpdateGears(gearsCount);
+        guiController.UpdateCleaness(MAX_CLEAN);
+        guiController.UpdateLiquidSoap(false);
+        guiController.UpdatePill(false);
+        guiController.UpdateWeapon(weapon);
     }
 
     public bool isDead()
@@ -114,7 +133,19 @@ public class PlayerController : MonoBehaviour
 
     public void setCleaness(float cleaness)
     {
-        this.cleaness = cleaness;
+        this.cleaness = Mathf.Clamp(cleaness,0,MAX_CLEAN);
+        guiController.UpdateCleaness(this.cleaness);
+    }
+
+    public int getGearsCount()
+    {
+        return gearsCount;
+    }
+
+    public void setGearsCount(int gearsCount)
+    {
+        this.gearsCount = gearsCount;
+        guiController.UpdateGears(this.gearsCount);
     }
     #endregion
 }

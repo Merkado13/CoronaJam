@@ -30,7 +30,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8981668722908049531}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -187,7 +187,7 @@ RectTransform:
   m_Children:
   - {fileID: 5000107328358380594}
   m_Father: {fileID: 8981668722908049531}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7d483453fd39f6740a30ea65b8b8fb19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90a29d3c9f413d540a948654ad686501, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -254,7 +254,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -272,7 +272,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2877170666714727987}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6092589145199308579}
+        m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1812394508780617708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,8 +341,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8981668723469836617}
-  - {fileID: 6384790518833906864}
   - {fileID: 6902457578666357168}
+  - {fileID: 6384790518833906864}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -355,6 +366,9 @@ MonoBehaviour:
   selectedSpr: {fileID: 21300000, guid: 0e435e7660b6354429bdfc7603944ab5, type: 3}
   deselectedSpr: {fileID: 21300000, guid: 79d0bb3fcbe2e2c40891231bdfda6508, type: 3}
   unavailableSpr: {fileID: 21300000, guid: c9e3dc6b9fdada44ea4985684dc95df4, type: 3}
+  buttonCanBuySpr: {fileID: 21300000, guid: 90a29d3c9f413d540a948654ad686501, type: 3}
+  buttonCanNotBuySpr: {fileID: 21300000, guid: 7d483453fd39f6740a30ea65b8b8fb19, type: 3}
+  priceButton: {fileID: 5281412543923591313}
   priceText: {fileID: 630507989771450339}
   weaponText: {fileID: 3135132475091967825}
   entrySprite: {fileID: 8981668723469836622}

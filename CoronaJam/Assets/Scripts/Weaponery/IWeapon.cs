@@ -10,4 +10,5 @@ public interface IWeapon
     bool CanShoot();
     void Hide();
     void Show();
+    WeaponInfoPlay GetWeaponData();
 }

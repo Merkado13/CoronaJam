@@ -8,6 +8,8 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     [SerializeField] private GameObject bulletObject;
     [SerializeField] private Camera currentCamera;
     [SerializeField] private float offsetBullet;
+
+    private WeaponInfoPlay weaponInfo;
     private SpriteRenderer renderer;
     private LookingAtCursor lookat;
     private Hideable hideable;
@@ -17,6 +19,7 @@ public class BasicWeapon : MonoBehaviour, IWeapon
         renderer = GetComponent<SpriteRenderer>();
         lookat = GetComponent<LookingAtCursor>();
         hideable = GetComponent<Hideable>();
+        weaponInfo = GetComponent<WeaponInfoPlay>();
     }
 
     // Start is called before the first frame update
@@ -58,5 +61,10 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     public void Show()
     {
         hideable.Show();
+    }
+
+    public WeaponInfoPlay GetWeaponData()
+    {
+        return weaponInfo;
     }
 }

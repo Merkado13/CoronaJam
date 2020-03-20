@@ -14,16 +14,21 @@ public class WeaponInfo
 
 public class ArrayWeaponEntry : MonoBehaviour
 {
-    private bool[] isWeaponPurchased;
+   
     [SerializeField] private GameObject weaponEntryObject;
     private WeaponEntry weaponEntry;
-    private readonly int MAX_NUM_WEAPONS = System.Enum.GetNames(typeof(Weapons)).Length;
+    private static readonly int MAX_NUM_WEAPONS = System.Enum.GetNames(typeof(Weapons)).Length;
+
+    private bool[] isWeaponPurchased;
+    private WeaponEntry[] entries; 
 
     [SerializeField] private Image showcaseImage;
     [SerializeField] private Text textDesription;
     [SerializeField] private float heightEntry = 43;
     [SerializeField] private float offsetBtwEntry = 40;
     [SerializeField] private WeaponInfo[] weaponsInfo;
+
+    [SerializeField] private  PlayerController player;
 
     private int numOfEntriesPerStep = 3;
     private int currentStep = 0;
@@ -33,7 +38,10 @@ public class ArrayWeaponEntry : MonoBehaviour
 
     public enum Direction { UP = -1, DOWN = 1 }
 
-    
+    private bool created = false;
+    private int currentNumOfWeapons;
+
+    private Vector3 originPos;
 
     private void Awake()
     {
@@ -43,10 +51,10 @@ public class ArrayWeaponEntry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isWeaponPurchased = new bool[MAX_NUM_WEAPONS];
-        maxStep = (MAX_NUM_WEAPONS - 1) / numOfEntriesPerStep;
-        steppingOffset = (heightEntry + offsetBtwEntry) * numOfEntriesPerStep;
-        CreateWeaponEntries();
+        
+        
+        if(!created)
+            CreateWeaponEntries();
     }
 
     // Update is called once per frame
@@ -54,6 +62,11 @@ public class ArrayWeaponEntry : MonoBehaviour
     {
         
     }
+
+    private void CalculateMaxStep()
+    {
+        maxStep = (currentNumOfWeapons - 1) / numOfEntriesPerStep;
+    }   
 
     public void Move(int dir)
     {
@@ -76,19 +89,59 @@ public class ArrayWeaponEntry : MonoBehaviour
 
     private void CreateWeaponEntries()
     {
-        for(int i = 0; i < MAX_NUM_WEAPONS; i++)
+        originPos = transform.position;
+        currentNumOfWeapons = MAX_NUM_WEAPONS;
+        isWeaponPurchased = new bool[MAX_NUM_WEAPONS];
+        entries = new WeaponEntry[MAX_NUM_WEAPONS];
+        CalculateMaxStep();
+        steppingOffset = (heightEntry + offsetBtwEntry) * numOfEntriesPerStep;
+
+        for (int i = 0; i < MAX_NUM_WEAPONS; i++)
         {
             GameObject entryObject = Instantiate(weaponEntryObject, 
                 transform.position + new Vector3(0,-1,0) * (i * heightEntry + i * offsetBtwEntry), 
                 transform.rotation,transform);
 
-            WeaponEntry entry = entryObject.GetComponent<WeaponEntry>();
-            entry.Init(weaponsInfo[i], showcaseImage, textDesription);
+            entries[i] = entryObject.GetComponent<WeaponEntry>();
+            entries[i].Init(i, weaponsInfo[i], showcaseImage, textDesription, player);
         }
+
+        created = true;
     }
 
-    private void ShowNotPurchasedWeapons()
+    public void Purchase(int index)
     {
-        
+        isWeaponPurchased[index] = true;
+    }
+
+    public void ShowNotPurchasedWeapons()
+    {
+        if (!created)
+        {
+            CreateWeaponEntries();
+        }
+        currentStep = 0;
+        transform.position = originPos;
+        int numOfNotWeaponPurchased = 0;
+        for(int i = 0; i < isWeaponPurchased.Length; i++)
+        { 
+            if (isWeaponPurchased[i])
+            {
+                if (entries[i] != null)
+                {
+                    Destroy(entries[i].gameObject);
+                    currentNumOfWeapons--;
+                }
+            }
+            else
+            {
+                entries[i].transform.position = transform.position + 
+                     new Vector3(0, -1, 0) * numOfNotWeaponPurchased * (heightEntry + offsetBtwEntry);
+                numOfNotWeaponPurchased++;
+                
+            }
+        }
+
+        CalculateMaxStep();
     }
 }

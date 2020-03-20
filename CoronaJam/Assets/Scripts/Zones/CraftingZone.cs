@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CraftingZone : MonoBehaviour, ITrigger
 {
     [SerializeField] private GameObject craftingPanelGUI;
+    [SerializeField] private ArrayWeaponEntry weaponEntries;
 
     public bool CanPerform(PlayerController player)
     {
@@ -28,5 +29,6 @@ public class CraftingZone : MonoBehaviour, ITrigger
     {
         player.isCrafting = true;
         craftingPanelGUI.SetActive(true);
+        weaponEntries.ShowNotPurchasedWeapons();
     }
 }
