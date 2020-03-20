@@ -15,15 +15,12 @@ public class InputMovement2D : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private AnimationPlayer animation;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        animation = GetComponent<AnimationPlayer>();
     }
 
     private void FixedUpdate()
@@ -34,7 +31,7 @@ public class InputMovement2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        animation.ChangeAnimationByInput(movementVelocity);
     }
 
     public void Stop()

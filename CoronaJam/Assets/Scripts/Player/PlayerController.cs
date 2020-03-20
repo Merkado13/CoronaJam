@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int gearsCount = 0;
     [SerializeField] private GUIController guiController;
 
+    private LiquidSoap liquid;
+    private Pill pill;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +114,12 @@ public class PlayerController : MonoBehaviour
             trigger.Enter(this);
             currentZone = trigger;
         }
+        IPickable pickable = collision.GetComponent<IPickable>();
+        if(pickable != null)
+        {
+            pickable.Pick(this);
+        }
+
     }
 
     public void PerformInZone()
@@ -187,5 +196,39 @@ public class PlayerController : MonoBehaviour
         this.gearsCount = gearsCount;
         guiController.UpdateGears(this.gearsCount);
     }
+
+    public Pill getPill()
+    {
+        return pill;
+    }
+
+    public void setPill(Pill pill)
+    {
+        if (this.pill != null)
+        {
+            this.pill = pill;
+            guiController.UpdatePill(true);
+        }
+    }
+
+    public LiquidSoap getLiquidSoap()
+    {
+        return liquid;
+    }
+
+    public void setLiquidSoap(LiquidSoap liquid)
+    {
+        if (this.liquid != null)
+        {
+            this.liquid = liquid;
+            guiController.UpdateLiquidSoap(true);
+        }
+    }
+
+    public GUIController GetGUIController()
+    {
+        return guiController;
+    }
+
     #endregion
 }
