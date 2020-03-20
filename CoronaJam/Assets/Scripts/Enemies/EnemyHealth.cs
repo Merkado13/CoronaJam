@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour
 {
     #region variables
 
+    public RoundController RoundController { get; set; }
+
     [SerializeField] private float health;
     [SerializeField] private float timeToDisappear;
     [SerializeField] private float knockbackMultiplier;
@@ -60,6 +62,7 @@ public class EnemyHealth : MonoBehaviour
             transform.GetChild(0).parent = null;
         }
 
+        RoundController.EnemyKilled();
         navAgent.CanMove = false;
         Destroy(gameObject, timeToDisappear);
     }
