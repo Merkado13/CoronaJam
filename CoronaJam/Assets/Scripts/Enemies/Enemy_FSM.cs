@@ -60,6 +60,7 @@ public class Enemy_FSM : MonoBehaviour
     {
         if(targetWindow.Barricades > 0) {
             targetWindow.Barricades--;
+            targetWindow.UpdateSprite();
         }
         else {
             CancelInvoke("BreakWindow");
