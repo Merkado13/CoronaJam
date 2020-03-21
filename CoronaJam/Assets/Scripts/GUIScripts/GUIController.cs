@@ -34,7 +34,7 @@ public class GUIController : MonoBehaviour
         weaponImage.sprite = info.sprWeaponGUI;
         weaponImage.rectTransform.sizeDelta = new Vector2(info.sprWeaponGUI.rect.width,
             info.sprWeaponGUI.rect.height) * 3;
-        ammoText.text = info.currentAmmo + "/" + info.maxAmmo;
+        ammoText.text = info.currentAmmo + "/" + "\n" + info.maxAmmo;
     }
 
     public void UpdatePill(bool available, ColorPill color)

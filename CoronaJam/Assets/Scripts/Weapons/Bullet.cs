@@ -51,6 +51,11 @@ public class Bullet : MonoBehaviour
             collision.GetComponent<EnemyHealth>().ReceiveDamage(25, direction);
             Destroy(gameObject);
         }
+
+        if (collision.name.Contains("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     //poner la animación

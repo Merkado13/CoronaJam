@@ -885,7 +885,7 @@ PrefabInstance:
     - target: {fileID: 1060464104572540123, guid: 78da37701625004449368c8ebc6379d4,
         type: 3}
       propertyPath: m_Name
-      value: Wall (27)
+      value: table
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78da37701625004449368c8ebc6379d4, type: 3}
@@ -1055,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: 1060464104572540123, guid: 78da37701625004449368c8ebc6379d4,
         type: 3}
       propertyPath: m_Name
-      value: Wall (26)
+      value: table
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78da37701625004449368c8ebc6379d4, type: 3}
@@ -1793,7 +1793,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b92181151f593bd429e215d21da5bd54, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -3078,16 +3078,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671364017}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.30010954, w: 0.95390475}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.137864, y: 1.137864, z: 1.137864}
   m_Children: []
   m_Father: {fileID: 1154047461}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -34.928}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 858.8, y: 298.2}
+  m_AnchoredPosition: {x: 753.3, y: 318.4}
   m_SizeDelta: {x: 118.2, y: 55.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &671364019
@@ -3103,25 +3103,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: b92181151f593bd429e215d21da5bd54, type: 3}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: inf./inf.
 --- !u!222 &671364020
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4421,7 +4421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -26.12}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -117.6, y: 75.1}
+  m_AnchoredPosition: {x: -126.3, y: 75.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1161572722
@@ -5243,6 +5243,11 @@ PrefabInstance:
       propertyPath: weaponObject
       value: 
       objectReference: {fileID: 301865299}
+    - target: {fileID: 7680935767885447695, guid: ecccd9afd6e49e44b8c51737f96a8ed6,
+        type: 3}
+      propertyPath: cleanessDownFactor
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecccd9afd6e49e44b8c51737f96a8ed6, type: 3}
 --- !u!20 &1336752679 stripped
@@ -5288,7 +5293,7 @@ Transform:
   m_GameObject: {fileID: 1343409113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4538, y: 1.4538, z: 1.4538}
   m_Children:
   - {fileID: 137940678}
   - {fileID: 570605526}
@@ -5545,11 +5550,11 @@ MonoBehaviour:
     price: 1000
     sprite: {fileID: 21300000, guid: 5d0c629885a2b0545854537e33d3db02, type: 3}
   - name: Minigun
-    description: "M\xE1s cadencia y disparo autom\xE1tico"
+    description: "Mayor cadencia y disparo autom\xE1tico"
     price: 2000
     sprite: {fileID: 21300000, guid: e9740807c739d58448fbcd3628892978, type: 3}
   - name: Escopuma
-    description: "M\xE1s da\xF1o"
+    description: "Mayor da\xF1o"
     price: 5000
     sprite: {fileID: 21300000, guid: fc6fa81f9714ac64d89ab51010b77839, type: 3}
   player: {fileID: 1813543862}
@@ -7467,7 +7472,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b92181151f593bd429e215d21da5bd54, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -7523,7 +7528,7 @@ MonoBehaviour:
     ShowGridParameters: 1
     ShowPathfindingSettings: 0
     ShowGridGraphSettigs: 0
-    ScaleLvl: 1
+    ScaleLvl: 16
   EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
   grids:
   - GridName: Default Grid 0
@@ -7532,10 +7537,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 1
     UserGridData: {fileID: 0}
-    gridPosition: {x: -16.31, y: -9.38, z: 0}
+    gridPosition: {x: -27.191631, y: -15.575408, z: 0}
     gridPivot: 0
-    width: 82
-    height: 47
+    width: 140
+    height: 80
     tileDiameter: 0.4
 --- !u!4 &2046623369
 Transform:
@@ -7546,7 +7551,7 @@ Transform:
   m_GameObject: {fileID: 2046623367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.329, y: 1.329, z: 1.329}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
