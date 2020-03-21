@@ -26,7 +26,7 @@ public class WashingHandsState : MonoBehaviour
         {
             animator.SetBool("isDead", true);
         }
-        else if (Input.GetKeyUp(KeyCode.E))
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
             player.isWashingHands = false;
         }
