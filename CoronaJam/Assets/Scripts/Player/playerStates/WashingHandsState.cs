@@ -18,12 +18,12 @@ public class WashingHandsState : MonoBehaviour
         playerSound = GetComponent<AudioSource>();
     }
 
-    /*[StateEnterMethod("Player.WashingHands")]
+    [StateEnterMethod("Player.WashingHands")]
     public void EnterWhashingState()
     {
         playerSound.clip = whasingHandsClip;
         playerSound.Play();
-    }*/
+    }
 
     [StateUpdateMethod("Player.WashingHands")]
     public void UpdateWashingHands()
