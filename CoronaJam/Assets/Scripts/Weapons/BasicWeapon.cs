@@ -74,4 +74,16 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     {
         return weaponInfo;
     }
+
+
+    public void Reload(int ammo)
+    {
+        int muni;
+        bool canParse = int.TryParse(weaponInfo.currentAmmo, out muni);
+        if (canParse)
+        {
+            int max = int.Parse(weaponInfo.maxAmmo);
+            weaponInfo.currentAmmo = Mathf.Clamp(muni + ammo, 0, max).ToString();
+        }
+    }
 }

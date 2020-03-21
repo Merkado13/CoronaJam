@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: e801ad2ceb32bef40b7507f43e3715ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9cd4a7dbe79e26e48b80a9aa91a2b02e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,10 +110,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7221877276363550046}
-  - component: {fileID: 7221877276363550047}
   - component: {fileID: 7221877276363550040}
+  - component: {fileID: 1767722220248158172}
   m_Layer: 0
-  m_Name: GearPickable
+  m_Name: RedPillPickable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,19 +134,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7221877276363550047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221877276363550041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edad622c724809a4e954590f85fffeef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gearAmount: 25
 --- !u!61 &7221877276363550040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,5 +158,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.46, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &1767722220248158172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7221877276363550041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fdda1ac904d6e4f9bcc33e8ad115e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 1
+  effectTimeInSeconds: 3
+  effectMultiplier: 2

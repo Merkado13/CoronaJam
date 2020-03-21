@@ -12,6 +12,9 @@ public class GUIController : MonoBehaviour
     [SerializeField] private Image pillImage;
     [SerializeField] private Image liquidSoapImage;
 
+    [SerializeField] private Sprite bluePill;
+    [SerializeField] private Sprite redPill;
+
     private readonly Color WHITE = new Color(255, 255, 255, 255);
     private readonly Color ALPHA = new Color(255, 255, 255, 0);
 
@@ -34,9 +37,15 @@ public class GUIController : MonoBehaviour
         ammoText.text = info.currentAmmo + "/" + info.maxAmmo;
     }
 
-    public void UpdatePill(bool available)
+    public void UpdatePill(bool available, ColorPill color)
     {
         pillImage.color = available ? WHITE : ALPHA;
+        if (color == ColorPill.BLUE) {
+            pillImage.sprite = bluePill;
+        }else if(color == ColorPill.RED)
+        {
+            pillImage.sprite = redPill;
+        }
     }
 
     public void UpdateLiquidSoap(bool available)

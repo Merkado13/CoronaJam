@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7221877275929421979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.6216035, y: 5.6216035, z: 5.6216035}
   m_Children: []
   m_Father: {fileID: 7221877276363550046}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: e801ad2ceb32bef40b7507f43e3715ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afc7ab4a1c24864458e6303e82309c13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,10 +110,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7221877276363550046}
-  - component: {fileID: 7221877276363550047}
   - component: {fileID: 7221877276363550040}
+  - component: {fileID: -2390701369130323211}
   m_Layer: 0
-  m_Name: GearPickable
+  m_Name: AmmoPicable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,19 +134,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7221877276363550047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221877276363550041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edad622c724809a4e954590f85fffeef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gearAmount: 25
 --- !u!61 &7221877276363550040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,3 +160,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &-2390701369130323211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7221877276363550041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8192ead92a66ff040b4af5afaf0cc31d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoType: 0
+  ammoAmount: 25

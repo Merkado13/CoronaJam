@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static float ENEMY_SPEED_MULTIPLIER = 1.0f;
+    public static float DAMAGE_MULTIPLIER = 1.0f;
+
     [SerializeField] private GameObject weaponObject;
     public List<IWeapon> weapons = new List<IWeapon>();
     public IWeapon currentWeapon { get; set; }
@@ -52,7 +55,7 @@ public class PlayerController : MonoBehaviour
         guiController.UpdateGears(gearsCount);
         guiController.UpdateCleaness(MAX_CLEAN);
         guiController.UpdateLiquidSoap(false);
-        guiController.UpdatePill(false);
+        guiController.UpdatePill(false, ColorPill.RED);
         guiController.UpdateWeapon(currentWeapon);
     }
 
@@ -69,6 +72,23 @@ public class PlayerController : MonoBehaviour
             {
                 currentWeapon.Shoot();
             }
+        }
+    }
+
+    public void UseItem()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && pill != null)
+        {
+            pill.UsePill(this);
+            pill = null;
+            guiController.UpdatePill(false, ColorPill.RED);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && liquid != null)
+        {
+            liquid.UseLiquidSoap(this);
+            liquid = null;
+            guiController.UpdateLiquidSoap(false);
         }
     }
 
@@ -143,6 +163,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public IEnumerator SlowEnemies(float effectMultiplier, float effectTime)
+    {
+        ENEMY_SPEED_MULTIPLIER = effectMultiplier;
+        yield return new WaitForSeconds(effectTime);
+        ENEMY_SPEED_MULTIPLIER = 1.0f;
+    }
+
+    public IEnumerator UpgradeDamage(float effectMultiplier, float effectTime)
+    {
+        DAMAGE_MULTIPLIER = effectMultiplier;
+        yield return new WaitForSeconds(effectTime);
+        DAMAGE_MULTIPLIER = 1.0f;
+    }
+
 
     #region getters_and_setters
     public bool getCanLockWindow()
@@ -202,13 +236,15 @@ public class PlayerController : MonoBehaviour
         return pill;
     }
 
-    public void setPill(Pill pill)
+    public bool setPill(Pill pill)
     {
-        if (this.pill != null)
+        if (this.pill == null)
         {
             this.pill = pill;
-            guiController.UpdatePill(true);
+            guiController.UpdatePill(true, pill.color);
+            return true;
         }
+        return false;
     }
 
     public LiquidSoap getLiquidSoap()
@@ -216,13 +252,16 @@ public class PlayerController : MonoBehaviour
         return liquid;
     }
 
-    public void setLiquidSoap(LiquidSoap liquid)
+    public bool setLiquidSoap(LiquidSoap liquid)
     {
-        if (this.liquid != null)
+        if (this.liquid == null)
         {
             this.liquid = liquid;
             guiController.UpdateLiquidSoap(true);
+            return true;
         }
+
+        return false;
     }
 
     public GUIController GetGUIController()
