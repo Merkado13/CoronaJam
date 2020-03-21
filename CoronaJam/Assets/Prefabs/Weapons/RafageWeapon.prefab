@@ -126,6 +126,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b60ce55d2ab7fb49ba137209c70e1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletObject: {fileID: 152158781440831504, guid: c5ece20df44a2ef4eaf1667bc6ef158e,
+    type: 3}
+  currentCamera: {fileID: 0}
+  offsetBullet: 0.75
+  cadency: 1.5
+  shotSound: {fileID: 0}
+  yOffset: 0
+  bulletsPerRafage: 3
+  timeBtwBullets: 0.1
 --- !u!114 &2781983971123535824
 MonoBehaviour:
   m_ObjectHideFlags: 0

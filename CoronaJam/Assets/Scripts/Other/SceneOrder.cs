@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class SceneOrder
 {
-    public enum Scenes { MAIN_MENU, GAMEPLAY, GAME_OVER };
+    public enum Scenes { MAIN_MENU, TUTO, GAMEPLAY, GAME_OVER };
 }
