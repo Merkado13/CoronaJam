@@ -34,6 +34,7 @@ public class Enemy_FSM : MonoBehaviour
     [StateEnterMethod("Base.Search window")]
     public void EnterSearchWindow()
     {
+        enemyFSM.ResetTrigger("KnockFromWindow");
         SearchWindow(WindowsOutside);
     }
 
@@ -60,6 +61,7 @@ public class Enemy_FSM : MonoBehaviour
     {
         if(targetWindow.Barricades > 0) {
             targetWindow.Barricades--;
+            targetWindow.UpdateSprite();
         }
         else {
             CancelInvoke("BreakWindow");
@@ -79,6 +81,16 @@ public class Enemy_FSM : MonoBehaviour
             collision.transform.parent = transform;
             collision.transform.localPosition = Vector3.zero;
             enemyFSM.SetTrigger("GetToWindowExit");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.GetComponent<Window>() != null) {
+            enemyFSM.ResetTrigger("GetToWindow");
+            enemyFSM.SetTrigger("KnockFromWindow");
+
+            CancelInvoke("BreakWindow");
         }
     }
 
