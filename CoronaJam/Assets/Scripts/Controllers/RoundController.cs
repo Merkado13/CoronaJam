@@ -26,7 +26,7 @@ public class RoundController : MonoBehaviour
         round = 1;
         enemiesSpawnedInRound = 0;
         enemiesKilledInRound = 0;
-        enemyNumberPerRound = 6;
+        enemyNumberPerRound = 1; //6
 
         UpdateRoundText();
         InvokeRepeating("SpawnEnemies", timeBetweenRounds, 3);
@@ -34,7 +34,7 @@ public class RoundController : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 1; i++) { //3
             enemiesSpawnedInRound++;
             EnemySpawner randomSpawn = enemySpawners[Random.Range(0, enemySpawners.Length)];
             randomSpawn.SpawnEnemy(Mathf.Pow(healthMultiplier, round));

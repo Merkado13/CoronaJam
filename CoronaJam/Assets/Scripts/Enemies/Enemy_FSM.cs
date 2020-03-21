@@ -108,6 +108,12 @@ public class Enemy_FSM : MonoBehaviour
         SearchWindow(WindowsInside);
     }
 
+    [StateUpdateMethod("Base.Search window exit")]
+    public void UpdateSearchWindowExit()
+    {
+        KeepPaper();
+    }
+
     [StateEnterMethod("Base.Run away")]
     public void EnterRunAway()
     {
@@ -119,9 +125,18 @@ public class Enemy_FSM : MonoBehaviour
     [StateUpdateMethod("Base.Run away")]
     public void UpdateRunAway()
     {
+        KeepPaper();
         if(targetWindow.Barricades == 0) {
-            navAgent.Target = targetWindow.transform.GetChild(0).transform;
+            CancelInvoke("BreakWindow");
+            navAgent.Target = targetWindow.transform.GetChild(0).transform; // Punto outside de la ventana
             //TODO: hacer que pierda el jugador
+        }
+    }
+
+    private void KeepPaper()
+    {
+        if(transform.childCount > 0) {
+            transform.GetChild(0).localPosition = Vector3.zero;
         }
     }
 
