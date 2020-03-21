@@ -183,6 +183,10 @@ MonoBehaviour:
   timeToDisappear: 2
   knockbackMultiplier: 3
   knockbackLength: 1.5
+  gearDropRate: 0.4
+  ammoDropRate: 0.7
+  nothingDropRate: 0.9
+  pillsDropRate: 0.9
 --- !u!114 &7930878969042871908
 MonoBehaviour:
   m_ObjectHideFlags: 0

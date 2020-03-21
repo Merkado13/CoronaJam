@@ -318,6 +318,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!4 &47329712
 Transform:
   m_ObjectHideFlags: 0
@@ -480,6 +487,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!4 &72916213
 Transform:
   m_ObjectHideFlags: 0
@@ -713,6 +727,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!114 &141526716 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3092873303109914063, guid: a82a1d4cf05145f4eb99e111b699e365,
@@ -1688,6 +1709,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!1 &362649987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +2877,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!4 &570605526
 Transform:
   m_ObjectHideFlags: 0
@@ -3369,6 +3404,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!4 &689222956
 Transform:
   m_ObjectHideFlags: 0
@@ -4086,6 +4128,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!4 &945177294
 Transform:
   m_ObjectHideFlags: 0
@@ -4424,6 +4473,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!4 &1089010912
 Transform:
   m_ObjectHideFlags: 0
@@ -6028,6 +6084,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!4 &1540911793
 Transform:
   m_ObjectHideFlags: 0
@@ -7488,6 +7551,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!4 &1999168573
 Transform:
   m_ObjectHideFlags: 0
@@ -7699,7 +7769,7 @@ MonoBehaviour:
     ShowGridParameters: 1
     ShowPathfindingSettings: 0
     ShowGridGraphSettigs: 0
-    ScaleLvl: 1
+    ScaleLvl: 2
   EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
   grids:
   - GridName: Default Grid 0
@@ -7790,6 +7860,13 @@ MonoBehaviour:
   - {fileID: 2087063709}
   toiletPaper: {fileID: 268026793}
   roundController: {fileID: 1790713113}
+  gear: {fileID: 7221877276363550041, guid: 39bf5a0cf77b1cd43981e3dd548d966d, type: 3}
+  ammo: {fileID: 7221877276363550041, guid: e076df2ee61d87c4b8a66170991b7fa8, type: 3}
+  liquidSoap: {fileID: 7221877276363550041, guid: 3866cfe7b85ea2c49ac3c5a878b014ac,
+    type: 3}
+  bluePill: {fileID: 7221877276363550041, guid: 125cb2c56519c2e4d85783cd86bccc99,
+    type: 3}
+  redPill: {fileID: 7221877276363550041, guid: 88f1179cb39adc747bb4cb1363f528d1, type: 3}
 --- !u!4 &2060618744
 Transform:
   m_ObjectHideFlags: 0
