@@ -29,8 +29,6 @@ public class EnemyHealth : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         knockbackCount = 0;
         isKnocked = false;
-
-        print("Vida: " + health);
     }
 
     private void Update()

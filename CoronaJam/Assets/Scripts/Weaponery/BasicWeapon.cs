@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BasicWeapon : MonoBehaviour, IWeapon
 {
-
     [SerializeField] private GameObject bulletObject;
     [SerializeField] private Camera currentCamera;
     [SerializeField] private float offsetBullet;
@@ -24,15 +23,13 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     public void Shoot()
@@ -42,7 +39,7 @@ public class BasicWeapon : MonoBehaviour, IWeapon
         direction.z = 0;
         direction = direction.normalized;
 
-        Debug.Log(direction);
+        //Debug.Log(direction);
 
         Vector3 initPosBullet = transform.position + offsetBullet * direction;
         Bullet bullet = Instantiate(bulletObject, initPosBullet, transform.rotation).GetComponent<Bullet>();
