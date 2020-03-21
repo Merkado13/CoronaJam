@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Weapons { MANUAL, RAFAGE, AUTOMATIC, MINIGUN, GRANADER, SHOTGUN}
+enum Weapons { MANUAL, RAFAGE, MINIGUN, SHOTGUN}
 
 public interface IWeapon
 {
@@ -11,5 +11,6 @@ public interface IWeapon
     bool CanShoot();
     void Hide();
     void Show();
+    void Reload(int ammount);
     WeaponInfoPlay GetWeaponData();
 }

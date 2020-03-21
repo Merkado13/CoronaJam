@@ -15,12 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     #endregion variables
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
-    public void SpawnEnemy()
+    public void SpawnEnemy(float multiplier)
     {
         GameObject enemyClone = Instantiate(enemy, transform.position, transform.rotation);
 
@@ -32,5 +27,6 @@ public class EnemySpawner : MonoBehaviour
 
         EnemyHealth enemyHealth = enemyClone.GetComponent<EnemyHealth>();
         enemyHealth.RoundController = roundController;
+        enemyHealth.MultiplyHealth(multiplier);
     }
 }

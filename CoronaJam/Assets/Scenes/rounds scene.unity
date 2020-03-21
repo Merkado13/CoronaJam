@@ -1803,8 +1803,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 182558007}
   canLockWindow: 0
+  canCraft: 0
   canWashHands: 0
   cleaness: 100
+  gearsCount: 0
+  guiController: {fileID: 0}
 --- !u!95 &1882895017
 Animator:
   serializedVersion: 3

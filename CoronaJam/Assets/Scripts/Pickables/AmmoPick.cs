@@ -4,23 +4,11 @@ using UnityEngine;
 
 public class AmmoPick : MonoBehaviour, IPickable
 {
-    [SerializeField] Weapons ammoType;
     [SerializeField] int ammoAmount;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Pick(PlayerController player)
     {
+        player.currentWeapon.Reload(ammoAmount);
         Destroy(gameObject);
     }
 }

@@ -80,6 +80,8 @@ public class WeaponEntry : MonoBehaviour
     public void Selected()
     {
         showcaseImage.sprite = weaponInfo.sprite;
+        showcaseImage.rectTransform.sizeDelta = new Vector2(weaponInfo.sprite.rect.width,
+            weaponInfo.sprite.rect.height) * 3;
         descriptionText.text = weaponInfo.description;
         isSelected = true;
     }

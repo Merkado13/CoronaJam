@@ -5,14 +5,26 @@ using UnityEngine;
 
 public class LiquidSoap
 {
+    private float cleanAmount;
+
+    public LiquidSoap(float cleanAmount)
+    {
+        this.cleanAmount = cleanAmount;
+    }
+
     public void UseLiquidSoap(PlayerController player)
     {
+
+        player.setCleaness(player.getCleaness() + cleanAmount);
+
     }
 }
 
 public class LiquidSoapPick : MonoBehaviour, IPickable
 {
-    
+
+    [SerializeField] private float cleanAmount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +39,7 @@ public class LiquidSoapPick : MonoBehaviour, IPickable
 
     public void Pick(PlayerController player)
     {
-        player.setLiquidSoap(new LiquidSoap());
-        Destroy(gameObject);
+        if(player.setLiquidSoap(new LiquidSoap(cleanAmount)))
+            Destroy(gameObject);
     }
 }

@@ -18,13 +18,13 @@ public class ArrayWeaponEntry : MonoBehaviour
     [SerializeField] private GameObject weaponEntryObject;
     [SerializeField] private GameObject[] weaponsGame;
     private WeaponEntry weaponEntry;
-    private static readonly int MAX_NUM_WEAPONS = System.Enum.GetNames(typeof(Weapons)).Length;
+    private static readonly int MAX_NUM_WEAPONS = System.Enum.GetNames(typeof(Weapons)).Length - 1;
 
     private bool[] isWeaponPurchased;
     private WeaponEntry[] entries; 
 
     [SerializeField] private Image showcaseImage;
-    [SerializeField] private Text textDesription;
+    [SerializeField] private Text textDescription;
     [SerializeField] private float heightEntry = 43;
     [SerializeField] private float offsetBtwEntry = 40;
     [SerializeField] private WeaponInfo[] weaponsInfo;
@@ -52,8 +52,7 @@ public class ArrayWeaponEntry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+
         if(!created)
             CreateWeaponEntries();
     }
@@ -104,7 +103,7 @@ public class ArrayWeaponEntry : MonoBehaviour
                 transform.rotation,transform);
 
             entries[i] = entryObject.GetComponent<WeaponEntry>();
-            entries[i].Init(i, weaponsInfo[i], showcaseImage, textDesription, player);
+            entries[i].Init(i, weaponsInfo[i], showcaseImage, textDescription, player);
         }
 
         created = true;
@@ -113,7 +112,7 @@ public class ArrayWeaponEntry : MonoBehaviour
     public void Purchase(int index)
     {
         isWeaponPurchased[index] = true;
-        GameObject weaponPurchased = Instantiate(weaponsGame[index], player.transform);
+        GameObject weaponPurchased = Instantiate(weaponsGame[index], player.transform, false);
         player.PrepareIncomingWeapon(weaponPurchased);
        
     }
@@ -127,7 +126,9 @@ public class ArrayWeaponEntry : MonoBehaviour
         currentStep = 0;
         transform.position = originPos;
         int numOfNotWeaponPurchased = 0;
-        for(int i = 0; i < isWeaponPurchased.Length; i++)
+        showcaseImage.sprite = null;
+        textDescription.text = "";
+        for (int i = 0; i < isWeaponPurchased.Length; i++)
         { 
             if (isWeaponPurchased[i])
             {

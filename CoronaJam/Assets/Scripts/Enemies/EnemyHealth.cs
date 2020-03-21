@@ -55,6 +55,11 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    public void MultiplyHealth(float multiplier)
+    {
+        health *= multiplier;
+    }
+
     [StateEnterMethod("Base.Dead")]
     public void Dead()
     {

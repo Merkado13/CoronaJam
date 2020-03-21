@@ -8,6 +8,8 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     [SerializeField] private GameObject bulletObject;
     [SerializeField] private Camera currentCamera;
     [SerializeField] private float offsetBullet;
+    [SerializeField] private float cadency;
+    [SerializeField] private AudioSource shotSound;
 
     private WeaponInfoPlay weaponInfo;
     private SpriteRenderer renderer;
@@ -47,6 +49,11 @@ public class BasicWeapon : MonoBehaviour, IWeapon
         Vector3 initPosBullet = transform.position + offsetBullet * direction;
         Bullet bullet = Instantiate(bulletObject, initPosBullet, transform.rotation).GetComponent<Bullet>();
         bullet.Init(initPosBullet, direction);
+
+        if (shotSound != null)
+        {
+            shotSound.Play();
+        }
     }
 
     public bool CanShoot()
@@ -73,5 +80,17 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     public WeaponInfoPlay GetWeaponData()
     {
         return weaponInfo;
+    }
+
+
+    public void Reload(int ammo)
+    {
+        int muni;
+        bool canParse = int.TryParse(weaponInfo.currentAmmo, out muni);
+        if (canParse)
+        {
+            int max = int.Parse(weaponInfo.maxAmmo);
+            weaponInfo.currentAmmo = Mathf.Clamp(muni + ammo, 0, max).ToString();
+        }
     }
 }
