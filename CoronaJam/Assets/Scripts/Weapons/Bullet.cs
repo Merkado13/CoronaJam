@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float maxDistance;
     [SerializeField] private float damage;
+    
 
     private void Awake()
     {

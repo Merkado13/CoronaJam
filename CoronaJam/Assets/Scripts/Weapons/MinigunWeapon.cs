@@ -8,6 +8,7 @@ public class MinigunWeapon : MonoBehaviour, IWeapon
     [SerializeField] private Camera currentCamera;
     [SerializeField] private float offsetBullet;
     [SerializeField] private float cadency;
+    [SerializeField] private AudioSource shotSound;
 
     private WeaponInfoPlay weaponInfo;
     private SpriteRenderer renderer;
@@ -47,6 +48,12 @@ public class MinigunWeapon : MonoBehaviour, IWeapon
         Vector3 initPosBullet = transform.position + offsetBullet * direction;
         Bullet bullet = Instantiate(bulletObject, initPosBullet, transform.rotation).GetComponent<Bullet>();
         bullet.Init(initPosBullet, direction);
+
+        if (shotSound != null)
+        {
+            if (!shotSound.isPlaying)
+                shotSound.Play();
+        }
     }
 
     public bool CanShoot()
