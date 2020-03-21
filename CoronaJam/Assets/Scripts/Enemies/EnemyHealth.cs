@@ -28,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
     private Rigidbody2D rigidbody;
     private bool isKnocked;
     private float knockbackCount;
+    private AudioSource enemyAudio;
 
     #endregion variables
 
@@ -36,6 +37,7 @@ public class EnemyHealth : MonoBehaviour
         enemyFSM = GetComponent<Animator>();
         navAgent = GetComponent<SAP2D.SAP2DAgent>();
         rigidbody = GetComponent<Rigidbody2D>();
+        enemyAudio = GetComponent<AudioSource>();
         knockbackCount = 0;
         isKnocked = false;
     }
@@ -53,10 +55,12 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void ReceiveDamage(float damage, Vector2 bulletDirection)
+    public void ReceiveDamage(float damage, float speedMultiplier, Vector2 bulletDirection)
     {
+        enemyAudio.Play();
         health -= damage;
         rigidbody.AddForce(bulletDirection * knockbackMultiplier, ForceMode2D.Impulse);
+        navAgent.MovementSpeed *= speedMultiplier;
         isKnocked = true;
 
         if(health <= 0) {

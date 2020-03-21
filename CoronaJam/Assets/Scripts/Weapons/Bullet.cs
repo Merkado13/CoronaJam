@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float maxDistance;
     [SerializeField] private float damage;
-    
 
     private void Awake()
     {
@@ -48,7 +47,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.GetComponent<EnemyHealth>() != null) {
-            collision.GetComponent<EnemyHealth>().ReceiveDamage(25, direction);
+            collision.GetComponent<EnemyHealth>().ReceiveDamage(damage * PlayerController.DAMAGE_MULTIPLIER, PlayerController.ENEMY_SPEED_MULTIPLIER, direction);
             Destroy(gameObject);
         }
     }
