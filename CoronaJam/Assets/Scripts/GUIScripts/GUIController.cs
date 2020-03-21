@@ -29,6 +29,8 @@ public class GUIController : MonoBehaviour
     {
         WeaponInfoPlay info = weapon.GetWeaponData();
         weaponImage.sprite = info.sprWeaponGUI;
+        weaponImage.rectTransform.sizeDelta = new Vector2(info.sprWeaponGUI.rect.width,
+            info.sprWeaponGUI.rect.height) * 3;
         ammoText.text = info.currentAmmo + "/" + info.maxAmmo;
     }
 

@@ -41,7 +41,6 @@ public class Bullet : MonoBehaviour
     {
         this.initPos = initPos;
         this.direction = direction;
-        Debug.Log("Bullet: " + direction);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
