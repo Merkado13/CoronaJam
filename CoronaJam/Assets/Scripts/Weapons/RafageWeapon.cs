@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class RafageWeapon : MonoBehaviour, IWeapon
 {
+
     [SerializeField] private GameObject bulletObject;
     [SerializeField] private Camera currentCamera;
     [SerializeField] private float offsetBullet;
     [SerializeField] private float cadency;
     [SerializeField] private AudioSource shotSound;
+    [SerializeField] private float yOffset = 0;
 
     private WeaponInfoPlay weaponInfo;
     private SpriteRenderer renderer;
     private LookingAtCursor lookat;
     private Hideable hideable;
+
+    [SerializeField] private int bulletsPerRafage = 3;
+    [SerializeField] private float timeBtwBullets = 0.1f;
+    private float lastTimeShot = 0;
 
     private void Awake()
     {
@@ -38,26 +44,43 @@ public class RafageWeapon : MonoBehaviour, IWeapon
 
     public void Shoot()
     {
-        Vector3 cursorPos = currentCamera.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = cursorPos - transform.position;
-        direction.z = 0;
-        direction = direction.normalized;
+        StartCoroutine("RafageShot");
+    }
 
-        Debug.Log(direction);
-
-        Vector3 initPosBullet = transform.position + offsetBullet * direction;
-        Bullet bullet = Instantiate(bulletObject, initPosBullet, transform.rotation).GetComponent<Bullet>();
-        bullet.Init(initPosBullet, direction);
-
-        if (shotSound != null)
+    IEnumerator RafageShot()
+    {     
+        for (int i = 0; i < bulletsPerRafage; i++)
         {
-            shotSound.Play();
+            int ammo = int.Parse(weaponInfo.currentAmmo);
+
+            if (ammo > 0)
+            {
+                Vector3 cursorPos = currentCamera.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 direction = cursorPos - transform.position;
+                direction.z = 0;
+                direction = direction.normalized;
+
+                Vector3 initPosBullet = transform.position + offsetBullet * direction;
+
+                Bullet bullet = Instantiate(bulletObject,
+                    initPosBullet + new Vector3(0, yOffset, 0), transform.rotation).GetComponent<Bullet>();
+                bullet.Init(initPosBullet, direction);
+
+                weaponInfo.currentAmmo = (ammo - 1).ToString();
+
+                yield return new WaitForSeconds(timeBtwBullets);
+            }
         }
     }
 
     public bool CanShoot()
     {
-        return Input.GetMouseButtonDown(0);
+        if (lastTimeShot + 1 / cadency < Time.time && Input.GetMouseButtonDown(0))
+        {
+            lastTimeShot = Time.time;
+            return true;
+        }
+        return false;
     }
 
     public void Init()
