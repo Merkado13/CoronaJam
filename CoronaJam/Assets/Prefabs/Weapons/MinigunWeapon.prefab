@@ -138,3 +138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a64231624025764999b3a14f437858c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletObject: {fileID: 152158781440831504, guid: 76a8e058fdd0b5a428c5e88d49b9abe9,
+    type: 3}
+  currentCamera: {fileID: 0}
+  offsetBullet: 0
+  cadency: 14
+  shotSound: {fileID: 0}
+  yOffset: 0.1

@@ -10,11 +10,14 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     [SerializeField] private float offsetBullet;
     [SerializeField] private float cadency;
     [SerializeField] private AudioSource shotSound;
+    [SerializeField] private float yOffset = 0;
 
     private WeaponInfoPlay weaponInfo;
     private SpriteRenderer renderer;
     private LookingAtCursor lookat;
     private Hideable hideable;
+
+    private float lastTimeShot = 0;
 
     private void Awake()
     {
@@ -47,7 +50,8 @@ public class BasicWeapon : MonoBehaviour, IWeapon
         Debug.Log(direction);
 
         Vector3 initPosBullet = transform.position + offsetBullet * direction;
-        Bullet bullet = Instantiate(bulletObject, initPosBullet, transform.rotation).GetComponent<Bullet>();
+        Bullet bullet = Instantiate(bulletObject, 
+            initPosBullet + new Vector3(0,yOffset,0), transform.rotation).GetComponent<Bullet>();
         bullet.Init(initPosBullet, direction);
 
         if (shotSound != null)
@@ -58,7 +62,12 @@ public class BasicWeapon : MonoBehaviour, IWeapon
 
     public bool CanShoot()
     {
-        return Input.GetMouseButtonDown(0);
+        if (lastTimeShot + 1 / cadency < Time.time && Input.GetMouseButtonDown(0))
+        {
+            lastTimeShot = Time.time;
+            return true;
+        }
+        return false;
     }
 
     public void Init()

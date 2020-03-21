@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
         {
             setGearsCount(getGearsCount() + 1000);
         }
+
+        guiController.UpdateWeapon(currentWeapon);
     }
 
     private void InitGUI()
@@ -56,6 +58,11 @@ public class PlayerController : MonoBehaviour
         guiController.UpdateCleaness(MAX_CLEAN);
         guiController.UpdateLiquidSoap(false);
         guiController.UpdatePill(false, ColorPill.RED);
+        guiController.UpdateWeapon(currentWeapon);
+    }
+
+    public void UpdateWeponInfo()
+    {
         guiController.UpdateWeapon(currentWeapon);
     }
 
@@ -146,7 +153,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentZone != null)
         {
-            if (Input.GetKey(KeyCode.E) && currentZone.CanPerform(this))
+            if (Input.GetKey(KeyCode.Space) && currentZone.CanPerform(this))
             {
                 currentZone.Perform(this);
             }

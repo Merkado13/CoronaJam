@@ -9,6 +9,9 @@ public class ShotgunWeapon : MonoBehaviour, IWeapon
     [SerializeField] private float offsetBullet;
     [SerializeField] private float cadency;
     [SerializeField] private AudioSource shotSound;
+    [SerializeField] private float yOffset = 0;
+
+    private float lastTimeShot = 0;
 
     private WeaponInfoPlay weaponInfo;
     private SpriteRenderer renderer;
@@ -46,18 +49,29 @@ public class ShotgunWeapon : MonoBehaviour, IWeapon
         Debug.Log(direction);
 
         Vector3 initPosBullet = transform.position + offsetBullet * direction;
-        Bullet bullet = Instantiate(bulletObject, initPosBullet, transform.rotation).GetComponent<Bullet>();
+        Bullet bullet = Instantiate(bulletObject,
+            initPosBullet + new Vector3(0, yOffset, 0), transform.rotation).GetComponent<Bullet>();
         bullet.Init(initPosBullet, direction);
+
+        weaponInfo.currentAmmo = (int.Parse(weaponInfo.currentAmmo) - 1).ToString();
 
         if (shotSound != null)
         {
-            shotSound.Play();
+            if (!shotSound.isPlaying)
+                shotSound.Play();
         }
     }
 
     public bool CanShoot()
     {
-        return Input.GetMouseButtonDown(0);
+        int ammo = int.Parse(weaponInfo.currentAmmo);
+
+        if (lastTimeShot + 1 / cadency < Time.time && ammo > 0 && Input.GetMouseButton(0))
+        {
+            lastTimeShot = Time.time;
+            return true;
+        }
+        return false;
     }
 
     public void Init()
