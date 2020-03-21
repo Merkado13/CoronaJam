@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0a3a262223d7d4dacee8ad1db80a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 10
   timeToDisappear: 2
   knockbackMultiplier: 3
   knockbackLength: 1.5
@@ -314,7 +314,7 @@ MonoBehaviour:
   MouseControl: 0
   Target: {fileID: 0}
   CanMove: 1
-  MovementSpeed: 1
+  MovementSpeed: 2
   RotationSpeed: 0
   isMoving: 0
   pathIndex: 0
