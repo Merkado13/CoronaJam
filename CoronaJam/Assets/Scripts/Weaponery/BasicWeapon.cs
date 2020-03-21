@@ -39,7 +39,7 @@ public class BasicWeapon : MonoBehaviour, IWeapon
         direction.z = 0;
         direction = direction.normalized;
 
-        //Debug.Log(direction);
+        Debug.Log(direction);
 
         Vector3 initPosBullet = transform.position + offsetBullet * direction;
         Bullet bullet = Instantiate(bulletObject, initPosBullet, transform.rotation).GetComponent<Bullet>();
