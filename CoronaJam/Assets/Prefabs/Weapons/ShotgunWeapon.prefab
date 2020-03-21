@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5311893109751578884}
   - component: {fileID: 5311893109751578885}
   - component: {fileID: 5574477359085063300}
-  - component: {fileID: 6952728517200309961}
+  - component: {fileID: 4006825972788549995}
   - component: {fileID: 2781983971123535824}
   m_Layer: 0
   m_Name: ShotgunWeapon
@@ -114,7 +114,7 @@ MonoBehaviour:
   sprWeaponGUI: {fileID: 21300000, guid: fc6fa81f9714ac64d89ab51010b77839, type: 3}
   currentAmmo: 50
   maxAmmo: 50
---- !u!114 &6952728517200309961
+--- !u!114 &4006825972788549995
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,13 +123,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5311893109751578889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952b48fb4efd1fd42a0f422cc3327713, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d005d9d6ca90094e92378128151ca6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletObject: {fileID: 2217926835377592686, guid: 36f98caa2746d5645a8f1eef9a301d82,
-    type: 3}
-  currentCamera: {fileID: 0}
-  offsetBullet: 0
 --- !u!114 &2781983971123535824
 MonoBehaviour:
   m_ObjectHideFlags: 0

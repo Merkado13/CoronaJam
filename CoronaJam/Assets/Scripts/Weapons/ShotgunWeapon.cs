@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicWeapon : MonoBehaviour, IWeapon
+public class ShotgunWeapon : MonoBehaviour, IWeapon
 {
-
     [SerializeField] private GameObject bulletObject;
     [SerializeField] private Camera currentCamera;
     [SerializeField] private float offsetBullet;
@@ -27,13 +26,13 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Shoot()

@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private float speed;
     [SerializeField] private float maxDistance;
+    [SerializeField] private float damage;
 
     private void Awake()
     {
@@ -54,5 +55,10 @@ public class Bullet : MonoBehaviour
     //poner la animación
     private void OnDestroy()
     {
+    }
+
+    public float getDamage()
+    {
+        return damage;
     }
 }
