@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentZone != null)
         {
-            if (Input.GetKey(KeyCode.E) && currentZone.CanPerform(this))
+            if (Input.GetKey(KeyCode.Space) && currentZone.CanPerform(this))
             {
                 currentZone.Perform(this);
             }
