@@ -374,6 +374,7 @@ MonoBehaviour:
   gearsCount: 0
   guiController: {fileID: 0}
   usePillClip: {fileID: 8300000, guid: 0752cb2d5c0d3e44e8a820a532dd8f32, type: 3}
+  washingHandsClip: {fileID: 8300000, guid: bd305158fa915984d8277c09af6f1ba1, type: 3}
 --- !u!114 &1964031564690827761
 MonoBehaviour:
   m_ObjectHideFlags: 0
