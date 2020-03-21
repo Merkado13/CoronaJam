@@ -12,6 +12,9 @@ public class RoundController : MonoBehaviour
     [SerializeField] private int addEnemiesPerRound;
     [SerializeField] private float healthMultiplier;
     [SerializeField] private float timeBetweenRounds;
+    [SerializeField] private AudioSource sceneAudio;
+    [SerializeField] private AudioClip betweenRoudsClip;
+    [SerializeField] private AudioClip duringRoundClip;
 
     private int round;
     private int enemiesSpawnedInRound;
@@ -26,7 +29,7 @@ public class RoundController : MonoBehaviour
         round = 1;
         enemiesSpawnedInRound = 0;
         enemiesKilledInRound = 0;
-        enemyNumberPerRound = 6;
+        enemyNumberPerRound = 6; //6
 
         UpdateRoundText();
         InvokeRepeating("SpawnEnemies", timeBetweenRounds, 3);
@@ -34,7 +37,12 @@ public class RoundController : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        for(int i = 0; i < 3; i++) {
+        if(sceneAudio.clip != duringRoundClip) {
+            sceneAudio.clip = duringRoundClip;
+            sceneAudio.Play();
+        }
+
+        for(int i = 0; i < 3; i++) { //3
             enemiesSpawnedInRound++;
             EnemySpawner randomSpawn = enemySpawners[Random.Range(0, enemySpawners.Length)];
             randomSpawn.SpawnEnemy(Mathf.Pow(healthMultiplier, round));
@@ -60,6 +68,8 @@ public class RoundController : MonoBehaviour
         enemiesKilledInRound = 0;
         enemiesSpawnedInRound = 0;
         enemyNumberPerRound += addEnemiesPerRound;
+        sceneAudio.clip = betweenRoudsClip;
+        sceneAudio.Play();
         UpdateRoundText();
         InvokeRepeating("SpawnEnemies", timeBetweenRounds, 2);
     }

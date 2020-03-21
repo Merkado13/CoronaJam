@@ -8,17 +8,27 @@ public class EnemyHealth : MonoBehaviour
     #region variables
 
     public RoundController RoundController { get; set; }
+    public GameObject Gear { get; set; }
+    public GameObject Ammo { get; set; }
+    public GameObject LiquidSoap { get; set; }
+    public GameObject BluePill { get; set; }
+    public GameObject RedPill { get; set; }
 
     [SerializeField] private float health;
     [SerializeField] private float timeToDisappear;
     [SerializeField] private float knockbackMultiplier;
     [SerializeField] private float knockbackLength;
+    [Range(0, 1)] [SerializeField] private float gearDropRate;
+    [Range(0, 1)] [SerializeField] private float ammoDropRate;
+    [Range(0, 1)] [SerializeField] private float nothingDropRate;
+    [Range(0, 1)] [SerializeField] private float pillsDropRate;
 
     private Animator enemyFSM;
     private SAP2D.SAP2DAgent navAgent;
     private Rigidbody2D rigidbody;
     private bool isKnocked;
     private float knockbackCount;
+    private AudioSource enemyAudio;
 
     #endregion variables
 
@@ -27,6 +37,7 @@ public class EnemyHealth : MonoBehaviour
         enemyFSM = GetComponent<Animator>();
         navAgent = GetComponent<SAP2D.SAP2DAgent>();
         rigidbody = GetComponent<Rigidbody2D>();
+        enemyAudio = GetComponent<AudioSource>();
         knockbackCount = 0;
         isKnocked = false;
     }
@@ -44,10 +55,12 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void ReceiveDamage(float damage, Vector2 bulletDirection)
+    public void ReceiveDamage(float damage, float speedMultiplier, Vector2 bulletDirection)
     {
+        enemyAudio.Play();
         health -= damage;
         rigidbody.AddForce(bulletDirection * knockbackMultiplier, ForceMode2D.Impulse);
+        navAgent.MovementSpeed *= speedMultiplier;
         isKnocked = true;
 
         if(health <= 0) {
@@ -70,5 +83,30 @@ public class EnemyHealth : MonoBehaviour
         RoundController.EnemyKilled();
         navAgent.CanMove = false;
         Destroy(gameObject, timeToDisappear);
+    }
+
+    private void OnDestroy()
+    {
+        float randomRate = Random.value;
+
+        if(randomRate <= gearDropRate) {
+            Instantiate(Gear, transform.position, transform.rotation);
+        }
+        else if(randomRate > gearDropRate && randomRate <= nothingDropRate) {
+            if(Random.value < 0.5) {
+                Instantiate(Ammo, transform.position, transform.rotation);
+            }
+            else {
+                Instantiate(LiquidSoap, transform.position, transform.rotation);
+            }
+        }
+        else if(randomRate >= pillsDropRate) {
+            if(Random.value < 0.5) {
+                Instantiate(BluePill, transform.position, transform.rotation);
+            }
+            else {
+                Instantiate(RedPill, transform.position, transform.rotation);
+            }
+        }
     }
 }

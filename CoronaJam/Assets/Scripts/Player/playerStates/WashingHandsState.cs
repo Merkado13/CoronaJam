@@ -5,13 +5,24 @@ using AnimatorStateMachineUtil;
 
 public class WashingHandsState : MonoBehaviour
 {
+    [SerializeField] private AudioClip whasingHandsClip;
+
     private Animator animator;
     private PlayerController player;
+    private AudioSource playerSound;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         player = GetComponent<PlayerController>();
+        playerSound = GetComponent<AudioSource>();
+    }
+
+    [StateEnterMethod("Player.WashingHands")]
+    public void EnterWhashingState()
+    {
+        playerSound.clip = whasingHandsClip;
+        playerSound.Play();
     }
 
     [StateUpdateMethod("Player.WashingHands")]
@@ -22,12 +33,10 @@ public class WashingHandsState : MonoBehaviour
 
         //transitions
 
-        if (player.isDead())
-        {
+        if(player.isDead()) {
             animator.SetBool("isDead", true);
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
+        else if(Input.GetKeyUp(KeyCode.Space)) {
             player.isWashingHands = false;
         }
 

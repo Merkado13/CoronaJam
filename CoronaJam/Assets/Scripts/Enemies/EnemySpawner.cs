@@ -12,6 +12,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform[] windowsInside;
     [SerializeField] private GameObject toiletPaper;
     [SerializeField] private RoundController roundController;
+    [SerializeField] private GameObject gear;
+    [SerializeField] private GameObject ammo;
+    [SerializeField] private GameObject liquidSoap;
+    [SerializeField] private GameObject bluePill;
+    [SerializeField] private GameObject redPill;
 
     #endregion variables
 
@@ -27,6 +32,11 @@ public class EnemySpawner : MonoBehaviour
 
         EnemyHealth enemyHealth = enemyClone.GetComponent<EnemyHealth>();
         enemyHealth.RoundController = roundController;
+        enemyHealth.Gear = gear;
+        enemyHealth.Ammo = ammo;
+        enemyHealth.LiquidSoap = liquidSoap;
+        enemyHealth.BluePill = bluePill;
+        enemyHealth.RedPill = redPill;
         enemyHealth.MultiplyHealth(multiplier);
     }
 }

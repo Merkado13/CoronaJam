@@ -26,22 +26,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cleaness = MAX_CLEAN;
     [SerializeField] private int gearsCount = 0;
     [SerializeField] private GUIController guiController;
+    [SerializeField] private AudioClip usePillClip;
+    [SerializeField] private AudioClip washingHandsClip;
 
     private LiquidSoap liquid;
     private Pill pill;
+    private AudioSource playerSound;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         currentWeapon = weaponObject.GetComponent<IWeapon>();
+        playerSound = GetComponent<AudioSource>();
         weapons.Add(currentWeapon);
         InitGUI();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
         guiController.UpdateWeapon(currentWeapon);
     }
 
@@ -66,10 +69,8 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot()
     {
-        if (currentWeapon != null)
-        {
-            if (currentWeapon.CanShoot())
-            {
+        if(currentWeapon != null) {
+            if(currentWeapon.CanShoot()) {
                 currentWeapon.Shoot();
             }
         }
@@ -77,15 +78,19 @@ public class PlayerController : MonoBehaviour
 
     public void UseItem()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && pill != null)
-        {
+        if(Input.GetKeyDown(KeyCode.Q) && pill != null) {
+            playerSound.clip = usePillClip;
+            playerSound.Play();
+
             pill.UsePill(this);
             pill = null;
             guiController.UpdatePill(false, ColorPill.RED);
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && liquid != null)
-        {
+        if(Input.GetKeyDown(KeyCode.Space) && liquid != null) {
+            playerSound.clip = washingHandsClip;
+            playerSound.Play();
+
             liquid.UseLiquidSoap(this);
             liquid = null;
             guiController.UpdateLiquidSoap(false);
@@ -96,17 +101,14 @@ public class PlayerController : MonoBehaviour
     {
         bool goUp = Input.GetKeyDown(KeyCode.Z) || Input.GetAxis("Mouse ScrollWheel") > 0f;
         bool goDown = Input.GetKeyDown(KeyCode.X) || Input.GetAxis("Mouse ScrollWheel") < 0f;
-        if (goUp)
-        {
+        if(goUp) {
             currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
             SwapWeapon(weapons[currentWeaponIndex]);
         }
-        else if (goDown)
-        {
-          
+        else if(goDown) {
             currentWeaponIndex = currentWeaponIndex <= 0 ? weapons.Count - 1 : currentWeaponIndex - 1;
             SwapWeapon(weapons[currentWeaponIndex]);
-        }    
+        }
     }
 
     public void PrepareIncomingWeapon(GameObject weaponPurchased)
@@ -129,25 +131,20 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ITrigger trigger = collision.GetComponent<ITrigger>();
-        if (trigger != null)
-        {
+        if(trigger != null) {
             trigger.Enter(this);
             currentZone = trigger;
         }
         IPickable pickable = collision.GetComponent<IPickable>();
-        if(pickable != null)
-        {
+        if(pickable != null) {
             pickable.Pick(this);
         }
-
     }
 
     public void PerformInZone()
     {
-        if (currentZone != null)
-        {
-            if (Input.GetKey(KeyCode.Space) && currentZone.CanPerform(this))
-            {
+        if(currentZone != null) {
+            if(Input.GetKey(KeyCode.Space) && currentZone.CanPerform(this)) {
                 currentZone.Perform(this);
             }
         }
@@ -156,8 +153,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         ITrigger trigger = collision.GetComponent<ITrigger>();
-        if (trigger != null)
-        {
+        if(trigger != null) {
             trigger.Exit(this);
             currentZone = null;
         }
@@ -177,8 +173,8 @@ public class PlayerController : MonoBehaviour
         DAMAGE_MULTIPLIER = 1.0f;
     }
 
-
     #region getters_and_setters
+
     public bool getCanLockWindow()
     {
         return canLockWindow;
@@ -216,7 +212,7 @@ public class PlayerController : MonoBehaviour
 
     public void setCleaness(float cleaness)
     {
-        this.cleaness = Mathf.Clamp(cleaness,0,MAX_CLEAN);
+        this.cleaness = Mathf.Clamp(cleaness, 0, MAX_CLEAN);
         guiController.UpdateCleaness(this.cleaness);
     }
 
@@ -238,8 +234,7 @@ public class PlayerController : MonoBehaviour
 
     public bool setPill(Pill pill)
     {
-        if (this.pill == null)
-        {
+        if(this.pill == null) {
             this.pill = pill;
             guiController.UpdatePill(true, pill.color);
             return true;
@@ -254,8 +249,7 @@ public class PlayerController : MonoBehaviour
 
     public bool setLiquidSoap(LiquidSoap liquid)
     {
-        if (this.liquid == null)
-        {
+        if(this.liquid == null) {
             this.liquid = liquid;
             guiController.UpdateLiquidSoap(true);
             return true;
@@ -269,5 +263,5 @@ public class PlayerController : MonoBehaviour
         return guiController;
     }
 
-    #endregion
+    #endregion getters_and_setters
 }
