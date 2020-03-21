@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edad622c724809a4e954590f85fffeef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gearAmount: 25
+  gearAmount: 200
 --- !u!61 &7221877276363550040
 BoxCollider2D:
   m_ObjectHideFlags: 0

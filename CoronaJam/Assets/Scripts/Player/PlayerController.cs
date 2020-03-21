@@ -41,14 +41,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.U)){
-            setCleaness(getCleaness() - 1.2f);
-        }
-        if (Input.GetKey(KeyCode.I))
-        {
-            setGearsCount(getGearsCount() + 1000);
-        }
-
+        
         guiController.UpdateWeapon(currentWeapon);
     }
 
