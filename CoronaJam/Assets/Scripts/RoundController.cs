@@ -37,7 +37,7 @@ public class RoundController : MonoBehaviour
         for(int i = 0; i < 3; i++) {
             enemiesSpawnedInRound++;
             EnemySpawner randomSpawn = enemySpawners[Random.Range(0, enemySpawners.Length)];
-            randomSpawn.SpawnEnemy();
+            randomSpawn.SpawnEnemy(Mathf.Pow(healthMultiplier, round));
         }
 
         if(enemiesSpawnedInRound >= enemyNumberPerRound) {
